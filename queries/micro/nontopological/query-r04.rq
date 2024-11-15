@@ -1,0 +1,9 @@
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/> 
+PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>
+
+SELECT (geof:buffer(?o1,0.04,uom:radian) AS ?ret) 
+WHERE { 
+	GRAPH <http://localhost:3030/geographica/geonames> {
+		?s1 <http://www.geonames.org/ontology#asWKT> ?o1
+	}
+} 

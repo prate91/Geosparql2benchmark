@@ -1,0 +1,12 @@
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/> 
+
+SELECT ?s1 ?s2
+WHERE { 
+	GRAPH <http://localhost:3030/geographica/lgd> {
+		?s1 <http://linkedgeodata.org/ontology/asWKT> ?o1
+	} 
+	GRAPH <http://localhost:3030/geographica/gag> {
+		?s2 <http://geo.linkedopendata.gr/gag/ontology/asWKT> ?o2
+	} 
+	FILTER(geof:sfCrosses(?o1, ?o2)).  
+} 

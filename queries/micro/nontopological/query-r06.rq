@@ -1,0 +1,9 @@
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/> 
+PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>
+
+SELECT (geof:area(?o1,uom:radian) AS ?ret) 
+WHERE { 
+	GRAPH <http://localhost:3030/geographica/clc> {
+		?s1 <http://geo.linkedopendata.gr/corine/ontology#asWKT> ?o1
+	} 
+}

@@ -1,0 +1,13 @@
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/> 
+
+SELECT ?s1 ?s2
+WHERE { 
+	GRAPH <https://geosparql.isti.cnr.it/fuseki/seminar-openllet/geonames> {
+		?s1 <http://www.geonames.org/ontology#asWKT> ?o1
+	} 
+	GRAPH <https://geosparql.isti.cnr.it/fuseki/seminar-openllet/dbpedia> {
+		?s2 <http://dbpedia.org/property/asWKT> ?o2
+	} 
+  	FILTER(geof:sfEquals(?o1, ?o2)).  
+} 
+
